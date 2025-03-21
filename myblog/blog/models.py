@@ -21,6 +21,8 @@ class Post(models.Model):
     publish = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=2, choices=Status, default=Status.DRAFT)
+    objects = models.Manager() # Default manager
+    published = PublishedManager() # Custom manager
 
     class Meta:
         ordering = ['-publish']
