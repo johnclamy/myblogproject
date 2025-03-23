@@ -1,0 +1,21 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="Personal blog">
+        <meta name="keywords" content="html blog django">
+        <link href="{% static 'styles/base.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <main id="content">
+                {% block content %}{% endblock content %}
+            </main>
+            <aside id="sidebar">
+                <h1>My blog</h1>
+                <p>This is my blog</p>
+            </aside>
+        </div>
+    </body>
+</html>
