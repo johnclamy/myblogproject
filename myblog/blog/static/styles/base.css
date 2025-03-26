@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+p {
+    font-weight: normal;
+}
+
+h1 {    
+    border-bottom: 1px solid #bbb;
+}
+
+p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+a {
+    color: #00abff;
+    text-decoration: none;
+}
+
+img {
+    max-width:  100%;
+}
