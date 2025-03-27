@@ -3,17 +3,17 @@
 
 {% block content %}
 <header>
-    <h1>Latest posts</h1>
+    <h1>My Blog</h1>
 </header>
 <article>
     {% for post in posts %}
     <header>
-        <h1>
+        <h2>
             <a href="{% url 'blog:post_detail' post.id %}">
                 {{ post.title }}
             </a>
-        </h1>
-        <p class="post-header-date">
+        </h2>
+        <p class="post-date">
             Published {{ post.publish }} by {{ post.author }}
         </p>
     </header>
