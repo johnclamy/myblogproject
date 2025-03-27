@@ -7,7 +7,7 @@
 </header>
 <article>
     {% for post in posts %}
-    <header>
+    <header class="post-header">
         <h2>
             <a href="{% url 'blog:post_detail' post.id %}">
                 {{ post.title }}
