@@ -43,6 +43,11 @@ img {
     max-width:  100%;
 }
 
+.wrapper {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
 .content {
     float: left;
     width: 60%;
