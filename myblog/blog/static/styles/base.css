@@ -57,8 +57,12 @@ img {
     height:100%;
 }
 
+.post-header {
+    margin-bottom: 1.2rem;
+}
+
 p.post-date{ 
-    color:#ccc;
+    color:rgb(85, 83, 83);
     font-family: georgia, serif;
     font-size: 12px;
     font-style: italic; 
