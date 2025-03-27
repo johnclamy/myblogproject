@@ -2,10 +2,14 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    color: darkslategray;
+    font-size: 14px;
 }
 
 h1,
@@ -16,11 +20,18 @@ p {
 
 h1 {    
     border-bottom: 1px solid #bbb;
+    padding:0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+h2 {
+    margin:30px 0 0;
+    font-size: 1.6rem;
 }
 
 p {
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: 1.2rem;
 }
 
 a {
@@ -30,4 +41,87 @@ a {
 
 img {
     max-width:  100%;
+}
+
+.content {
+    float: left;
+    width: 60%;
+    padding: 0 0 0 30px;
+}
+
+.sidebar {
+    float:right;
+    width:30%;
+    padding:10px;
+    background:#efefef; 
+    height:100%;
+}
+
+p.post-date{ 
+    color:#ccc;
+    font-family: georgia, serif;
+    font-size: 12px;
+    font-style: italic; 
+}
+
+.left {
+    float:left;
+    margin-right:10px;
+}
+
+/* pagination */
+.pagination { 
+    margin:40px 0; 
+    font-weight:bold;
+}
+
+/* forms */
+
+label { 
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px; 
+}
+
+input, textarea { 
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#ededed;
+    border:0;
+    padding:6px 10px;
+    font-size:12px;
+}
+
+input[type=submit] {
+    font-weight:bold;
+    background:#00abff;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase; 
+}
+
+.errorlist { 
+    color:#cc0033;
+    float:left;
+    clear:both;
+    padding-left:10px; 
+}
+
+/* comments */
+
+.comment {
+    padding:10px;
+}
+
+.comment:nth-child(even) {
+    background:#efefef;
+}
+
+.comment .info {
+    font-weight:bold;
+    font-size:12px;
+    color:#666;
 }
