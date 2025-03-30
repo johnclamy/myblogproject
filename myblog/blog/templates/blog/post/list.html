@@ -2,24 +2,26 @@
 {% block title %}My Blog{% endblock title %}
 
 {% block content %}
-<header>
-    <h1>My Blog</h1>
-</header>
-<article>
-    {% for post in posts %}
-    <header class="post-header">
-        <h2>
-            <a href="{{ post.get_absolute_url }}">
-                {{ post.title }}
-            </a>
-        </h2>
-        <p class="post-date">
-            Published {{ post.publish }} by {{ post.author }}
-        </p>
+    <header>
+        <h1>My Blog</h1>
     </header>
-    <section>
-        <p>{{ post.body|truncatewords:30|linebreaks }}</p>
-    </section>
-    {% endfor %}
-</article>
+    <article>
+        {% for post in posts %}
+        <header class="post-header">
+            <h2>
+                <a href="{{ post.get_absolute_url }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <p class="post-date">
+                Published {{ post.publish }} by {{ post.author }}
+            </p>
+        </header>
+        <section>
+            <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+        </section>
+        {% endfor %}
+    </article>
+    {% include "pagination.html" with page=posts %}
+
 {% endblock content %}
