@@ -1,4 +1,4 @@
-from django.core.paginator import EmptyPage, Paginator
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
 from .models import Post
 
@@ -6,10 +6,13 @@ from .models import Post
 def post_list(request):
     post_list = Post.published.all()
     paginator = Paginator(post_list, 3)
-    page_number = request.GET.get('page', 1)
+    page_number = request.GET.get('page')
 
     try:
         posts = paginator.page(page_number)
+    except PageNotAnInteger:
+        # if the page_number is not an integer get the first page
+        posts = paginator.page(1)
     except EmptyPage:
         # if page_number is out of range get last page of results
         posts = paginator.page(paginator.num_pages)
