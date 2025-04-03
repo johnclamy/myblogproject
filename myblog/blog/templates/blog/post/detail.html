@@ -9,6 +9,6 @@
     </header>
     {{ post.body|linebreaks }}
     <section>
-        <p><a href="{% url 'blog:post_share' post_id %}">Share this post</a></p>
+        <p style="margin-top:12px"><a href="{% url 'blog:post_share' post.id %}">Share this post</a></p>
     </section>
 {% endblock content %}
