@@ -1,9 +1,10 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render
+from django.views.decorators.http import require_POST
 from django.views.generic import ListView
 from .models import Post
-from .forms import EmailPostForm
+from .forms import CommentForm, EmailPostForm
 
 
 class PostListView(ListView):
@@ -76,4 +77,23 @@ def post_share(request, post_id):
         request,
         'blog/post/share.html',
         {'post': post, 'form': form, 'sent': sent}
+    )
+
+
+@require_POST
+def post_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id, status=Post.Status.PUBLISHED)
+    comment = None
+    form = CommentForm(data=request.POST) # a comment was posted  
+
+    if form.is_valid():
+        # create a comment obj without saving it to the database
+        comment = form.save(commit=False)
+        comment.post = post #assign the post to a comment
+        comment.save() #save the comment to the db
+
+    return render(
+        request, 
+        'blog/post/comment.html',
+        {'post': post, 'form': form, 'comment': comment}    
     )
