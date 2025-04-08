@@ -15,5 +15,13 @@
                 {{total_comments}} comment{{total_comments|pluralize}}
             </h2>
         {% endwith %}
+        {% for comment in comments %}
+            <section>
+                <p>Comment {{forloop.counter}} by {{comment.name}} {{comment.created}}</p>
+                {{comment.body|linebreaks}}
+            </section>
+        {% empty %}
+            <p>There are no comments.</p>
+        {% endfor %}
     </section>
 {% endblock content %}
