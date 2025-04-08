@@ -10,5 +10,10 @@
     {{ post.body|linebreaks }}
     <section>
         <p style="margin-top:12px"><a href="{% url 'blog:post_share' post.id %}">Share this post</a></p>
+        {% with comments.count as total_comments %}
+            <h2>
+                {{total_comments}} comment{{total_comments|pluralize}}
+            </h2>
+        {% endwith %}
     </section>
 {% endblock content %}
